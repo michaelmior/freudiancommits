@@ -1,8 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{% block title %}Freudian Commits{% endblock %}</title>
-  </head>
-  <body>
-  </body>
-</html>
+{% extends "base.html" %}
+{% load account %}
+{% load socialaccount %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  Welcome {% user_display user %}!
+{% else %}
+  <a href="{% provider_login_url "github" %}">Login with GitHub</a>
+{% endif %}
+
+{% endblock %}
