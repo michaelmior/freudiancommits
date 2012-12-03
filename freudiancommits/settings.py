@@ -118,6 +118,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'freudiancommits.main',
+    'freudiancommits.github',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
