@@ -6,6 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', TemplateView.as_view(template_name='index.html')),
+    (r'^github/', include('freudiancommits.github.urls')),
+
     (r'^accounts/', include('allauth.urls')),
 
     # Examples:
