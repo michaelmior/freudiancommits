@@ -1,7 +1,8 @@
 import urllib2
 
-from django.views.generic.base import View
+from django.views.generic.base import TemplateView, View
 from django import http
+from django.shortcuts import get_object_or_404
 
 from allauth.socialaccount.models import SocialAccount, SocialToken
 import sanction.client
@@ -105,3 +106,13 @@ class FetchDataView(View):
         self.fetch_repos(account, client)
 
         return http.HttpResponse()
+
+
+class IssueView(TemplateView):
+    template_name = 'issue.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(IssueView, self).get_context_data(**kwargs)
+        context['issue'] = get_object_or_404(models.Issue,
+                pk=kwargs['issue_id'])
+        return context
