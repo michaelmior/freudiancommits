@@ -116,3 +116,19 @@ class IssueView(TemplateView):
         context['issue'] = get_object_or_404(models.Issue,
                 pk=kwargs['issue_id'])
         return context
+
+
+class RandomIssueView(TemplateView):
+    template_name = 'randomissue.json'
+
+    def get_context_data(self, **kwargs):
+        context = super(RandomIssueView, self).get_context_data(**kwargs)
+        context['issue'] = models.Issue.objects.filter(
+                repo__starredrepo__account__user=self.request.user) \
+                        .order_by('?')[0]
+        return context
+
+    def get(self, request, *args, **kwargs):
+        response = super(RandomIssueView, self).get(request, *args, **kwargs)
+        response['Content-Type'] = 'application/json'
+        return response

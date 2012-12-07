@@ -1,0 +1,6 @@
+.github-issue > h2 > a {
+  color: black;
+}
+.github-issue a {
+  text-decoration: none;
+}

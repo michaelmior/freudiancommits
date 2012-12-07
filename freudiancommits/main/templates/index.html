@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% load account %}
 {% load socialaccount %}
+{% load static %}
 
 {% block content %}
 
-{% if user.is_authenticated %}
-  Welcome {% user_display user %}!
-{% else %}
-  <div class="hero-unit">
-    <h1>Unresolved issues?</h1>
-    <p>Freudian Commits helps you find unresolved issues for projects you have starred on GitHub.</p>
-    <p>It's a great way to find ways to contribute to your favourite open source projects.</p>
-    <p>To continue, sign in below!</p>
-    <a class="btn-auth btn-github large" href="{% provider_login_url "github" %}">Sign in with <b>GitHub</b></a>
-  </div>
-{% endif %}
+<div class="hero-unit">
+  {% if user.is_authenticated %}
+    <div id="github-issue"></div>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0rc1/zepto.min.js"></script>
+    <script type="text/javascript" src="{% static "js/randomissue.js" %}"></script>
+  {% else %}
+      <h1>Unresolved issues?</h1>
+      <p>Freudian Commits helps you find unresolved issues for projects you have starred on GitHub.</p>
+      <p>It's a great way to find ways to contribute to your favourite open source projects.</p>
+      <p>To continue, sign in below!</p>
+      <a class="btn-auth btn-github large" href="{% provider_login_url "github" %}">Sign in with <b>GitHub</b></a>
+  {% endif %}
+</div>
 
 {% endblock %}
