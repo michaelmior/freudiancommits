@@ -1,7 +1,7 @@
 # Django settings for freudiancommits project.
 import os
 
-DEBUG = False
+DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -11,7 +11,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 import dj_database_url
-DATABASES = {'default': dj_database_url.config(default='postgres://freudiancommits:freudiancommits@localhost/freudiancommits')}
+DATABASES = {'default': dj_database_url.config()}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -71,7 +71,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '7klcu78w5_h0e$07xrl29z$0fhf%e0s-s%g3rh@^!$l$((8uqr'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
