@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="hero-unit">
+  <div class="alert alert-block alert-error" style="display:none">
+    <h4>Oh dear&hellip;</h4>
+    <p>It looks like we're having more issues than anticipated. Please give a refresh a try.</p>
+    <p>Feel free to reach out to <a href="http://twitter.com/michaelmior/">@michaelmior</a> if your issue is more serious.</p>
+  </div>
+
+  <div class="loading">
+    <h2>Loading data from GitHub&hellip;</h2>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width:100%"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0rc1/zepto.min.js"></script>
+<script type="text/javascript" src="{% static "js/loading.js" %}"></script>
+
+{% endblock %}

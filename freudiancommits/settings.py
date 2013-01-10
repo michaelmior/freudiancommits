@@ -191,3 +191,5 @@ if not DEBUG:
     STATIC_URL = '//%s/%s/' % \
             (AWS_STORAGE_BUCKET_NAME, STATIC_S3_PATH)
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+LOGIN_REDIRECT_URL = '/github/loading/'

@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^fetch_data/$', views.FetchDataView.as_view()),
     url(r'^issue/(?P<issue_id>\d+)/$', views.IssueView.as_view()),
     url(r'^randomissue/$', login_required(views.RandomIssueView.as_view())),
+    url(r'^loading/$', login_required(views.LoadingView.as_view())),
 )

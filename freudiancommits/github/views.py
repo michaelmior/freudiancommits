@@ -132,3 +132,7 @@ class RandomIssueView(TemplateView):
         response = super(RandomIssueView, self).get(request, *args, **kwargs)
         response['Content-Type'] = 'application/json'
         return response
+
+
+class LoadingView(TemplateView):
+    template_name = 'loading.html'
