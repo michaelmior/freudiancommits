@@ -3,11 +3,7 @@
 
 {% block content %}
 <div class="hero-unit">
-  <div class="alert alert-block alert-error" style="display:none">
-    <h4>Oh dear&hellip;</h4>
-    <p>It looks like we're having more issues than anticipated. Please give a refresh a try.</p>
-    <p>Feel free to reach out to <a href="http://twitter.com/michaelmior/">@michaelmior</a> if your issue is more serious.</p>
-  </div>
+  {% include "error.html" %}
 
   <div class="loading">
     <h2>Loading data from GitHub&hellip;</h2>

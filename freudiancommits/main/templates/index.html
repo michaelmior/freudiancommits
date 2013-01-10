@@ -6,6 +6,8 @@
 {% block content %}
 
 <div class="hero-unit">
+  {% include "error.html" %}
+
   {% if user.is_authenticated %}
     <div id="github-issue"></div>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0rc1/zepto.min.js"></script>
