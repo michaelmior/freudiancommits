@@ -3,6 +3,29 @@ body {
   padding-top: 50px;
 }
 
+.hero-unit {
+  min-height: 16em;
+  position: relative;
+}
+
+.hero-unit > h1 {
+  position: relative;
+  top: -0.5em;
+}
+
+.hero-unit > .btn-github {
+  margin-top: 1em;
+}
+
+#github-issue .next-issue {
+  position: absolute;
+  bottom: 2em;
+}
+
+#github-issue .next-issue .icon-chevron-right {
+  margin-left: 10px;
+}
+
 footer {
     color: white;
 }
